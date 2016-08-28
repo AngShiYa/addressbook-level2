@@ -187,11 +187,11 @@ public class ParserTest {
                 "add ",
                 "add wrong args format",
                 // no phone prefix
-                String.format("add $s $s e/$s a/$s", Name.EXAMPLE, Phone.EXAMPLE, Email.EXAMPLE, Address.EXAMPLE),
+                String.format("add $s $s e/$s a/$s", Name.EXAMPLE, Phone.EXAMPLE, Email.EXAMPLE, Address.ADDRESS_EXAMPLE),
                 // no email prefix
-                String.format("add $s p/$s $s a/$s", Name.EXAMPLE, Phone.EXAMPLE, Email.EXAMPLE, Address.EXAMPLE),
+                String.format("add $s p/$s $s a/$s", Name.EXAMPLE, Phone.EXAMPLE, Email.EXAMPLE, Address.ADDRESS_EXAMPLE),
                 // no address prefix
-                String.format("add $s p/$s e/$s $s", Name.EXAMPLE, Phone.EXAMPLE, Email.EXAMPLE, Address.EXAMPLE)
+                String.format("add $s p/$s e/$s $s", Name.EXAMPLE, Phone.EXAMPLE, Email.EXAMPLE, Address.ADDRESS_EXAMPLE)
         };
         final String resultMessage = String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE);
         parseAndAssertIncorrectWithMessage(resultMessage, inputs);
@@ -208,7 +208,7 @@ public class ParserTest {
         final String invalidTagArg = "t/invalid_-[.tag";
 
         // address can be any string, so no invalid address
-        final String addCommandFormatString = "add $s $s $s a/" + Address.EXAMPLE;
+        final String addCommandFormatString = "add $s $s $s a/" + Address.ADDRESS_EXAMPLE;
 
         // test each incorrect person data field argument individually
         final String[] inputs = {
@@ -253,7 +253,7 @@ public class ParserTest {
                 new Name(Name.EXAMPLE),
                 new Phone(Phone.EXAMPLE, true),
                 new Email(Email.EXAMPLE, false),
-                new Address(Address.EXAMPLE, true),
+                new Address(Address.ADDRESS_EXAMPLE, true),
                 new UniqueTagList(new Tag("tag1"), new Tag("tag2"), new Tag("tag3"))
             );
         } catch (IllegalValueException ive) {
