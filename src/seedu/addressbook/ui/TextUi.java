@@ -8,6 +8,7 @@ import seedu.addressbook.data.person.ReadOnlyPerson;
 
 import java.io.InputStream;
 import java.io.PrintStream;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -108,6 +109,10 @@ public class TextUi {
 
     public void showInitFailedMessage() {
         showToUser(MESSAGE_INIT_FAILED, DIVIDER, DIVIDER);
+    }
+    
+    public void showFileNotFoundMessge() {
+        showToUser("File not found. A new file has been created.");
     }
 
     /** Shows message(s) to the user */
