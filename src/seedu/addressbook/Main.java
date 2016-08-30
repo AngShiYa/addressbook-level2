@@ -107,6 +107,9 @@ public class Main {
         try {
             command.setData(addressBook, lastShownList);
             CommandResult result = command.execute();
+            if (!storage.ifFileExist()) {
+                ui.showFileNotFoundMessge();
+            }
             storage.save(addressBook);
             return result;
         } catch (Exception e) {
