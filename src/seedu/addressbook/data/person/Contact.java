@@ -28,4 +28,8 @@ public abstract class Contact {
     public boolean isPrivate() {
         return isPrivate;
     }
+    
+    public String getValue() {
+        return value;
+    }
 }
